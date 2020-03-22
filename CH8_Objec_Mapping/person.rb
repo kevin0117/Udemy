@@ -2,10 +2,17 @@ require 'csv'
 
 class Person
   attr_accessor :first_name, :last_name, :person_id
+  attr_reader :filename
+
   def initialize (first_name, last_name, person_id = rand(1000..9999))
     @first_name = first_name
-    @last_name = last_name
-    @person_id = person_id
+    @last_name  = last_name
+    @person_id  = person_id
+    @filename   = "#{person_id}-file.csv"
+  end
+
+  def self.filename(person_id)
+    "#{person_id}-file.csv"
   end
 
   def valid?
@@ -13,7 +20,6 @@ class Person
   end
 
   def save
-    filename = "#{person_id}-file.csv"
     # If we got back the successful object from here, that means the file is save successfully 
     save_file = CSV.open(filename, "w") do |csv|
       csv << [first_name, last_name]
@@ -23,7 +29,7 @@ class Person
   end
 
   def self.read(person_id)
-    filename = "#{person_id}-file.csv"
+    filename = Person.filename(person_id)
     if File.exist?(filename)
       File.open(filename,'r') do |f|
         employee_name = CSV.parse(f.read).flatten
@@ -37,19 +43,27 @@ class Person
     end
   end
 
+  def create
+    if !File.exist?(filename)
+      save
+    else
+      puts "Cannot create file. File #{filename} already exists for #{person_id}"
+      return false
+    end
+  end
+
   def update
-    filename = "#{person_id}-file.csv"
+    # filename   = "#{person_id}-file.csv"
     if File.exist?(filename)
-      update_file = CSV.open(filename, "w") do |csv|
-        csv << [first_name, last_name]
-      end
-      puts "File #{filename} updated for the employee with ID #{person_id}"
-      return !update_file.nil?
+       save
     else
       puts "The #{filename} file doesn't exist, update cannot be performed" 
       return false
     end
   end
+end
+
+
 
 
 #   def show
@@ -66,6 +80,3 @@ class Person
 #     #   csv.readline
 #     # end
 #   end
-
-
-end
