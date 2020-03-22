@@ -7,8 +7,19 @@ class Person
     @last_name = last_name
     @person_id = person_id
   end
+
   def valid?
     (!first_name.nil? && first_name.length > 0) && (!last_name.nil? && last_name.length > 0)
+  end
+
+  def save
+    filename = "#{person_id}-file.csv"
+    # If we got back the successful object from here, that means the file is save successfully 
+    save_file = CSV.open(filename, "w") do |csv|
+      csv << [first_name, last_name]
+    end
+    puts "File #{filename} saved for the employee with ID #{person_id}"
+    return !save_file.nil?
   end
 
   def self.read(person_id)
@@ -24,10 +35,20 @@ class Person
     else
       puts "The #{filename} doesn't exist" 
     end
-    # My version of show
-    # CSV.open("#{person_id}-file.csv",'r') do |csv|
-    #   csv.readline
-    # end
+  end
+
+  def update
+    filename = "#{person_id}-file.csv"
+    if File.exist?(filename)
+      update_file = CSV.open(filename, "w") do |csv|
+        csv << [first_name, last_name]
+      end
+      puts "File #{filename} updated for the employee with ID #{person_id}"
+      return !update_file.nil?
+    else
+      puts "The #{filename} file doesn't exist, update cannot be performed" 
+      return false
+    end
   end
 
 
@@ -46,13 +67,5 @@ class Person
 #     # end
 #   end
 
-  def save
-    filename = "#{person_id}-file.csv"
-    # If we got back the successful object from here, that means the file is save successfully 
-    save_file = CSV.open(filename, "w") do |csv|
-      csv << [first_name, last_name]
-    end
-    puts "File #{filename} saved for the employee with ID #{person_id}"
-    return !save_file.nil?
-  end
+
 end
