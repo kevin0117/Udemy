@@ -62,6 +62,18 @@ class Person
       return false
     end
   end
+  
+  def self.destroy(person_id)
+    filename = Person.filename(person_id)
+    if File.exist?(filename)
+      File.delete(filename)
+      puts "The file was destroyed"
+      return true
+    else
+      "The #{filename} file doesn't exist, destroy cannot be performed" 
+      return false
+    end
+  end
 end
 
 

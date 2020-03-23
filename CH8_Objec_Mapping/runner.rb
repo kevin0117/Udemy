@@ -23,9 +23,11 @@ require_relative 'person'
 
 person = Person.read(2265)
 
-person.last_name = "Annie"
+p Person.destroy(2265)
 
-p person.update
+# person.last_name = "Annie"
+
+# p person.update
 
 
 
