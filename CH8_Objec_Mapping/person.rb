@@ -29,6 +29,7 @@ class Person
   end
 
   def self.read(person_id)
+    # filename = "#{person_id}-file.csv"
     filename = Person.filename(person_id)
     if File.exist?(filename)
       File.open(filename,'r') do |f|
