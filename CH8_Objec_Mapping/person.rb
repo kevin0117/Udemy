@@ -16,10 +16,18 @@ class Person
   end
 
   def valid?
-    (!first_name.nil? && first_name.length > 0) && (!last_name.nil? && last_name.length > 0)
+    if (!first_name.nil? && first_name.length > 0) && (!last_name.nil? && last_name.length > 0)
+      return true
+    else
+      print "Person attributes not valid"
+      return false
+    end
   end
 
   def save
+    unless valid?
+      puts "Cannot save file."
+    end
     # If we got back the successful object from here, that means the file is save successfully 
     save_file = CSV.open(filename, "w") do |csv|
       csv << [first_name, last_name]
@@ -44,8 +52,8 @@ class Person
     end
   end
 
-  def create
-    if !File.exist?(filename)
+  def create    
+    if !File.exist?(filename) && valid?
       save
     else
       puts "Cannot create file. File #{filename} already exists for #{person_id}"
