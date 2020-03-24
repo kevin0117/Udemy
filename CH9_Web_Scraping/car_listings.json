@@ -1,1 +1,50 @@
-[{"name":"Speedy Crossover","year":"","price":"","rating":"3"},{"name":"Offroad 4x4","year":"","price":"","rating":"4"},{"name":"Mid-Size Sedan","year":"","price":"","rating":"3"},{"name":"Family Wagon","year":"","price":"","rating":"5"},{"name":"Powerful Pickup","year":"","price":"","rating":"4"},{"name":"Open Top Convertible","year":"","price":"","rating":"5"},{"name":"Starter Coupe","year":"","price":"","rating":"4"},{"name":"Comfort Cruiser","year":"","price":"","rating":"3"}]
+[
+    {
+        "name": "Speedy Crossover",
+        "year": 2017,
+        "price": "$32,899",
+        "rating": 3
+    },
+    {
+        "name": "Offroad 4x4",
+        "year": 2015,
+        "price": "$25,395",
+        "rating": 4
+    },
+    {
+        "name": "Mid-Size Sedan",
+        "year": 2018,
+        "price": "$27,599",
+        "rating": 3
+    },
+    {
+        "name": "Family Wagon",
+        "year": 2014,
+        "price": "$22,300",
+        "rating": 5
+    },
+    {
+        "name": "Powerful Pickup",
+        "year": 2018,
+        "price": "$36,999",
+        "rating": 4
+    },
+    {
+        "name": "Open Top Convertible",
+        "year": 2019,
+        "price": "$41,389",
+        "rating": 5
+    },
+    {
+        "name": "Starter Coupe",
+        "year": 2018,
+        "price": "$21,459",
+        "rating": 4
+    },
+    {
+        "name": "Comfort Cruiser",
+        "year": 2016,
+        "price": "$26,750",
+        "rating": 3
+    }
+]
