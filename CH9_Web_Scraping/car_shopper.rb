@@ -4,6 +4,22 @@ require 'httparty'
 require 'nokogiri'
 require 'pp'
 
+def convert_price(price)
+  #------------------Instructor Version----------------
+  price.gsub('$','').gsub(',','').to_i
+
+  #------------------My Version------------------------
+  # i = 0
+  # result = []
+  # while i < price.length
+  #   if price[i].to_i != 0
+  #     result << price[i].to_i
+  #   end
+  #   i += 1
+  # end
+  # result.join.to_i
+end
+# p convert_price("$32,899")
 def car_shopper
   car_info_list = []
   response = HTTParty.get('https://code.evgenyrahman.com/rubycourse/carlist.html')
@@ -26,7 +42,7 @@ def car_shopper
     {
       name: each_car.css('.make').text,
       year: each_car.css('.year').text.to_i,
-      price: each_car.css('.price').text,
+      price: convert_price(each_car.css('.price').text),
       rating: each_car.css('.star.rating').attribute('data-rating').value.to_i
     }
   end
