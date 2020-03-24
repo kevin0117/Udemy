@@ -1,50 +1,14 @@
 [
     {
-        "name": "Speedy Crossover",
-        "year": 2017,
-        "price": 32899,
-        "rating": 3
-    },
-    {
         "name": "Offroad 4x4",
         "year": 2015,
         "price": 25395,
         "rating": 4
     },
     {
-        "name": "Mid-Size Sedan",
-        "year": 2018,
-        "price": 27599,
-        "rating": 3
-    },
-    {
-        "name": "Family Wagon",
-        "year": 2014,
-        "price": 22300,
-        "rating": 5
-    },
-    {
-        "name": "Powerful Pickup",
-        "year": 2018,
-        "price": 36999,
-        "rating": 4
-    },
-    {
-        "name": "Open Top Convertible",
-        "year": 2019,
-        "price": 41389,
-        "rating": 5
-    },
-    {
         "name": "Starter Coupe",
         "year": 2018,
         "price": 21459,
         "rating": 4
-    },
-    {
-        "name": "Comfort Cruiser",
-        "year": 2016,
-        "price": 26750,
-        "rating": 3
     }
 ]

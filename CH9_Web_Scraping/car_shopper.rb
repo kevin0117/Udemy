@@ -47,6 +47,10 @@ def car_shopper
     }
   end
 
+  cars.select! do |car|
+    (car[:price] < 30000) && (car[:year] > 2014) && (car[:rating] > 3)
+  end
+
   File.open('car_listings.json', 'wb') do |f|
     f << cars.to_json # '<' is append, '<<' is overwrite
   end
