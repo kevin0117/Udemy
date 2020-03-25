@@ -1,10 +1,44 @@
 [
-  ["Williams", "Christoper", "christopherwilliams@hotmail.com"],
-  ["Unknown", "Unknown", "karenvasquez@hotmail.com"],
-  ["Welch", "Erica", "erica39@welch.com"],
-  ["Unknown", "Unknown", "danielwagner@gmail.com"],
-  ["Jon", "Martin", "martinjon@hotmail.com"],
-  ["Griffin", "Scott", "scottgriffin@gmail.com"],
-  ["Castillo", "Oscar", "ocastillo@yahoo.com"],
-  ["Knight", "Michael", "oknight@yahoo.com"]
+    {
+        :first_name=>"Oscar",
+        :last_name=>"Castillo",
+        :email=>"ocastillo@yahoo.com",
+        :browser=>"Firefox"
+    },
+    {
+        :first_name=>"Scott",
+        :last_name=>"Griffin",
+        :email=>"scottgriffin@gmail.com",
+        :browser=>"Safari"
+    },
+    {
+        :first_name=>"Michael",
+        :last_name=>"Knight",
+        :email=>"oknight@yahoo.com",
+        :browser=>"Safari"
+    },
+    {
+        :first_name=>"Unknown",
+        :last_name=>"Unknown",
+        :email=>"danielwagner@gmail.com",
+        :browser=>"Chrome"
+    },
+    {
+        :first_name=>"Erica",
+        :last_name=>"Welch",
+        :email=>"erica39@welch.com",
+        :browser=>"Safari"
+    },
+    {
+        :first_name=>"Christoper",
+        :last_name=>"Williams",
+        :email=>"christopherwilliams@hotmail.com",
+        :browser=>"Firefox"
+    },
+    {
+        :first_name=>"Unknown",
+        :last_name=>"Unknown",
+        :email=>"karenvasquez@hotmail.com",
+        :browser=>"Other"
+    }
 ]

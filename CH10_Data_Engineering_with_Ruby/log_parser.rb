@@ -16,6 +16,10 @@ def parsed_log
                 browser = determine_browser(parsed_array.last)
                 [email, browser]
               end
+  cross_reference_data = user_data.map do |line|
+                           cross_reference(line)
+                         end
+  cross_reference_data
 end
 
 def determine_browser(user_agent)
@@ -53,12 +57,21 @@ def cross_reference(log_line)
     end
     line
   end
-  users
+  matching_users = users.select do |line|
+                     log_line[0] == line[2]
+                   end
+
+  matching_user = matching_users.first
+  { first_name: matching_user[1],
+    last_name: matching_user[0],
+    email: matching_user[2],
+    browser: log_line[1]
+  }
 end
 
-p cross_reference("")
-# p parsed_log
+# p cross_reference("")
+p parsed_log
 
 File.open('access_log.json', 'w') do |f|
-  f.write cross_reference("")
+  f.write parsed_log
 end
