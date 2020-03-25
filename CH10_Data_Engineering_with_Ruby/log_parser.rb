@@ -1,12 +1,25 @@
 # frozen_string_literal: true
 require 'csv'
 require 'pp'
-def parsed_log
-  filename = 'data/access_log_20190521-211058.log'
 
-  access_log_lines = File.open(filename, 'r', &:readlines)
+def get_files
+#           filename = 'data/access_log_20190521-211058.log'
+  matching_files = Dir["data/access_log_*-*.log"]
 
-  signup_log_lines = access_log_lines.select do |line|
+  parsing_results = matching_files.map do |file|
+                      #  access_log_lines = File.open(filename, 'r', &:readlines)
+                      #  上面寫法等同於下面
+                      access_log_lines = File.open(file, 'r') do |f|
+                        f.readlines
+                      end
+                      parsed_log(access_log_lines)
+                    end
+  pp parsing_results
+end
+
+def parsed_log(log_lines)
+
+  signup_log_lines = log_lines.select do |line|
     line.include?('/signup?email=')
   end
 
@@ -69,9 +82,8 @@ def cross_reference(log_line)
   }
 end
 
-# p cross_reference("")
-p parsed_log
+get_files
 
 File.open('access_log.json', 'w') do |f|
-  f.write parsed_log
+  f.write get_files
 end
