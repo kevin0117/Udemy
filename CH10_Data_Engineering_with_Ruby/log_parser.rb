@@ -11,15 +11,11 @@ def parsed_log
   end
 
   user_data = signup_log_lines.map do |line|
-    parsed_line = line.split('" "').last
-    determine_browser(parsed_line)
-  end
-
-  puts user_data
-  File.open('access_log.json', 'w') do |f|
-    f.write user_data
-    #   f.write signup_log_lines
-  end
+                parsed_array = line.split('" "')
+                email = extract_email(parsed_array.first)
+                browser = determine_browser(parsed_array.last)
+                [email, browser]
+              end
 end
 
 def determine_browser(user_agent)
@@ -29,4 +25,13 @@ def determine_browser(user_agent)
   'Other'
 end
 
-parsed_log
+def extract_email(log_line)
+  email = log_line.match(/signup\?email\=([a-zA-Z0-9@.]*) HTTP\//)
+  email.captures.first
+end
+
+p parsed_log
+
+File.open('access_log.json', 'w') do |f|
+  f.write parsed_log
+end

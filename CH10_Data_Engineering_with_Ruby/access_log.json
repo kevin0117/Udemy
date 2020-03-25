@@ -1,9 +1,9 @@
 [
-  "Firefox",
-  "Safari",
-  "Safari",
-  "Chrome",
-  "Safari",
-  "Firefox",
-  "Other"
+  ["ocastillo@yahoo.com", "Firefox"],
+  ["scottgriffin@gmail.com", "Safari"],
+  ["oknight@yahoo.com", "Safari"],
+  ["danielwagner@gmail.com", "Chrome"],
+  ["erica39@welch.com", "Safari"],
+  ["christopherwilliams@hotmail.com", "Firefox"],
+  ["karenvasquez@hotmail.com", "Other"]
 ]
