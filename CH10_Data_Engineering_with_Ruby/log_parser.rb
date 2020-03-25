@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'csv'
 require 'pp'
 def parsed_log
   filename = 'data/access_log_20190521-211058.log'
@@ -30,8 +30,35 @@ def extract_email(log_line)
   email.captures.first
 end
 
-p parsed_log
+def cross_reference(log_line)
+  users = CSV.open('data/users.csv') do |csv|
+    csv.readlines
+  end
+  users.map! do |line|
+    if line.length == 3
+      if line[0].nil?
+        line[0] = 'Unknown'
+      end
+
+      if line[1].nil?
+        line[1] = 'Unknown'
+      end
+    else
+      if line[0].match(/[a-zA-Z0-9@.]*/)
+        email = line[0]
+        line[0] = "Unknown"
+        line.push("Unknown")
+        line.push(email)
+      end
+    end
+    line
+  end
+  users
+end
+
+p cross_reference("")
+# p parsed_log
 
 File.open('access_log.json', 'w') do |f|
-  f.write parsed_log
+  f.write cross_reference("")
 end

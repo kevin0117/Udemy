@@ -1,9 +1,10 @@
 [
-  ["ocastillo@yahoo.com", "Firefox"],
-  ["scottgriffin@gmail.com", "Safari"],
-  ["oknight@yahoo.com", "Safari"],
-  ["danielwagner@gmail.com", "Chrome"],
-  ["erica39@welch.com", "Safari"],
-  ["christopherwilliams@hotmail.com", "Firefox"],
-  ["karenvasquez@hotmail.com", "Other"]
+  ["Williams", "Christoper", "christopherwilliams@hotmail.com"],
+  ["Unknown", "Unknown", "karenvasquez@hotmail.com"],
+  ["Welch", "Erica", "erica39@welch.com"],
+  ["Unknown", "Unknown", "danielwagner@gmail.com"],
+  ["Jon", "Martin", "martinjon@hotmail.com"],
+  ["Griffin", "Scott", "scottgriffin@gmail.com"],
+  ["Castillo", "Oscar", "ocastillo@yahoo.com"],
+  ["Knight", "Michael", "oknight@yahoo.com"]
 ]
