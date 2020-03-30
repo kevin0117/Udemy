@@ -1,2 +1,2 @@
-# Udemy
-Simple Practice Assignment
+# Complete Ruby Programmer - Master Ruby
+
